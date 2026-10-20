@@ -1,42 +1,72 @@
+ <div align="center">
 
-<div align="center">
+<a href="https://github.com/haniaeman2026-pixel/IntelliTask-AI">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:3B2419,50:8A5638,100:D5AE78&height=190&section=header&text=IntelliTask%20AI&fontSize=52&fontColor=FFF8EE&fontAlignY=42&desc=Intelligent%20Task%20Management%20Assistant&descSize=17&descAlignY=65&animation=fadeIn" width="100%" alt="IntelliTask AI banner"/>
+</a>
 
-<img src="https://capsule-render.vercel.app/api?type=venom&height=240&color=0:2C211B,50:80664F,100:D9C3A5&text=IntelliTask%20AI&fontColor=FFF5E8&fontSize=64&fontAlignY=42&desc=INTELLIGENT%20TASK%20MANAGEMENT%20ASSISTANT&descSize=15&descAlignY=62&animation=fadeIn&stroke=E8D6BE&strokeWidth=1" width="100%" alt="IntelliTask AI animated banner"/>
-
-<br/>
-
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=500&size=18&duration=3000&pause=1000&color=9B795A&center=true&vCenter=true&width=650&lines=Transform+natural+language+into+action.;Extract.+Prioritize.+Organize.;Powered+by+LangGraph+%26+Groq+API." alt="Animated project tagline"/>
-
-<br/>
-
-**An AI-powered assistant that turns everyday task descriptions into organized, prioritized to-do lists.**
+<a href="https://git.io/typing-svg">
+  <img src="https://readme-typing-svg.demolab.com?font=Georgia&weight=500&size=19&duration=3000&pause=1000&color=8A5638&center=true&vCenter=true&width=600&lines=Turn+natural+language+into+organized+tasks;Extract.+Prioritize.+Organize.;Smarter+task+management+with+AI." alt="Animated IntelliTask AI tagline"/>
+</a>
 
 <br/>
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![LangGraph](https://img.shields.io/badge/LangGraph-6B46C1?style=for-the-badge)
-![Groq API](https://img.shields.io/badge/Groq_API-F55036?style=for-the-badge)
-![Pydantic](https://img.shields.io/badge/Pydantic-E92063?style=for-the-badge&logo=pydantic&logoColor=white)
+**An AI-powered assistant that transforms everyday instructions into structured, prioritized to-do lists.**
+
+<br/>
+
+<img src="https://img.shields.io/badge/Python-3B2419?style=flat-square&logo=python&logoColor=F5D6A7" alt="Python"/>
+<img src="https://img.shields.io/badge/LangGraph-6B4B36?style=flat-square&logoColor=white" alt="LangGraph"/>
+<img src="https://img.shields.io/badge/Groq_API-8A5638?style=flat-square&logoColor=white" alt="Groq API"/>
+<img src="https://img.shields.io/badge/Pydantic-B28A62?style=flat-square&logoColor=white" alt="Pydantic"/>
 
 </div>
 
 ---
 
-## ✦ Overview
+## Overview
 
-**IntelliTask AI** is an intelligent task management project built with Python, LangGraph, and the Groq API.
+IntelliTask AI simplifies task management by converting informal natural-language instructions into individual tasks, assigning priority levels, preserving explicitly stated deadlines, and generating an organized to-do list.
 
-It takes informal, natural-language task descriptions and processes them through a three-node AI workflow to extract individual tasks, assign priority levels, and generate a structured to-do list.
+Instead of manually organizing every activity, users can describe their plans in one sentence and let the AI-powered workflow structure the information.
 
-### The idea
+## Workflow Architecture
 
-Instead of manually organizing every activity, simply describe what needs to be done.
+<div align="center">
 
-**Example input**
+```mermaid
+flowchart TD
+    A["User Input"] --> B["01 · Task Extraction"]
+    B --> C["02 · Task Prioritization"]
+    C --> D["03 · Format Results"]
+    D --> E["Organized To-Do List"]
+    style A fill:#F5E9D8,stroke:#A47B55,color:#3B2419
+    style B fill:#E9D8C5,stroke:#A47B55,color:#3B2419
+    style C fill:#E9D8C5,stroke:#A47B55,color:#3B2419
+    style D fill:#E9D8C5,stroke:#A47B55,color:#3B2419
+    style E fill:#DDE7D9,stroke:#6D8668,color:#263D28
+```
+
+</div>
+
+### 01 — Task Extraction
+
+Identifies individual activities, separates multiple tasks, and extracts explicitly stated deadline phrases.
+
+### 02 — Task Prioritization
+
+Assigns **High**, **Medium**, or **Low** priority based on the AI model's interpretation of urgency and importance.
+
+### 03 — Format Results
+
+Combines the processed information into a readable to-do list containing task titles, priorities, available deadlines, and the total task count.
+
+## Example
+
+**Input**
 
 > I need to complete my assignment tomorrow, prepare for my meeting next week, and buy groceries today.
 
-**Organized output**
+**Generated Output**
 
 ```text
 INTELLITASK AI
@@ -58,89 +88,38 @@ AI-POWERED TASK MANAGEMENT ASSISTANT
 Total tasks: 3
 ```
 
-*Priority assignments depend on the model's judgment and may vary.*
+<sub>Example output; priorities may vary depending on the model's interpretation.</sub>
 
----
-
-## ✦ Workflow Architecture
-
-<div align="center">
-
-```mermaid
-flowchart TD
-    A(["User Input"]) --> B["01 · Task Extraction"]
-    B --> C["02 · Task Prioritization"]
-    C --> D["03 · Format Results"]
-    D --> E(["Organized To-Do List"])
-    E --> F(["END"])
-
-    style A fill:#E8D6BE,stroke:#8C6B4F,color:#30231C
-    style B fill:#F4EBDD,stroke:#A58A6D,color:#30231C
-    style C fill:#E6D8C6,stroke:#A58A6D,color:#30231C
-    style D fill:#F4EBDD,stroke:#A58A6D,color:#30231C
-    style E fill:#D8E5D8,stroke:#69856B,color:#243A27
-    style F fill:#30231C,stroke:#80664F,color:#FFF5E8
-```
-
-</div>
-
-### 01 — Task Extraction
-
-- Identifies actionable tasks from natural-language input.
-- Separates multiple activities into individual tasks.
-- Extracts explicitly stated due-date phrases.
-- Structures extracted information using Pydantic schemas.
-
-### 02 — Task Prioritization
-
-- Assigns High, Medium, or Low priority.
-- Preserves task titles and extracted deadlines.
-- Validates the returned task count.
-- Uses AI judgment to estimate relative importance.
-
-### 03 — Format Results
-
-- Formats prioritized tasks into a readable list.
-- Displays available due dates and priorities.
-- Provides a total task count.
-- Handles empty task lists.
-
----
-
-## ✦ Key Features
+## Key Features
 
 | Feature | Description |
 |---|---|
-| Natural-language input | Describe tasks in everyday language |
-| Task extraction | Identify separate actionable activities |
-| AI prioritization | Assign High, Medium, or Low priority |
-| Deadline extraction | Preserve explicitly stated deadline phrases |
-| Workflow orchestration | Connect three sequential LangGraph nodes |
-| Structured validation | Validate model outputs with Pydantic |
-| Readable results | Generate an organized terminal-based to-do list |
-| Automated testing | Verify core formatting and workflow structure |
+| Natural-Language Input | Accepts everyday task descriptions. |
+| Automatic Extraction | Separates activities into individual tasks. |
+| AI Prioritization | Assigns High, Medium, or Low priority. |
+| Due-Date Extraction | Preserves explicitly stated deadline phrases. |
+| Workflow Orchestration | Connects three sequential LangGraph nodes. |
+| Structured Validation | Uses Pydantic schemas for output validation. |
+| Automated Testing | Includes tests for formatting and graph structure. |
+| Secure Configuration | Loads API credentials through environment variables. |
 
----
-
-## ✦ Technology Stack
+## Technology Stack
 
 <div align="center">
 
 | Technology | Role |
-|:---|:---|
-| **Python** | Application logic |
-| **LangGraph** | Three-node workflow orchestration |
-| **LangChain Groq** | Groq model integration |
-| **Groq API** | Language-model inference |
+|:---:|---|
+| **Python** | Core application logic |
+| **LangGraph** | Workflow orchestration |
+| **LangChain Groq** | Language-model integration |
+| **Groq API** | Task extraction and prioritization |
 | **Pydantic** | Structured data validation |
 | **python-dotenv** | Environment configuration |
 | **pytest** | Automated testing |
 
 </div>
 
----
-
-## ✦ Project Structure
+## Project Structure
 
 ```text
 IntelliTask-AI/
@@ -151,7 +130,6 @@ IntelliTask-AI/
 │   ├── schemas.py
 │   ├── llm.py
 │   ├── graph.py
-│   │
 │   └── nodes/
 │       ├── __init__.py
 │       ├── extract_tasks.py
@@ -169,9 +147,7 @@ IntelliTask-AI/
 └── NOTES.md
 ```
 
----
-
-## ✦ Installation & Setup
+## Getting Started
 
 ### 1. Clone the repository
 
@@ -180,7 +156,7 @@ git clone https://github.com/haniaeman2026-pixel/IntelliTask-AI.git
 cd IntelliTask-AI
 ```
 
-### 2. Create a virtual environment
+### 2. Create and activate a virtual environment
 
 **Windows PowerShell**
 
@@ -204,7 +180,9 @@ GROQ_API_KEY=your_actual_groq_api_key
 GROQ_MODEL=openai/gpt-oss-20b
 ```
 
-Replace the placeholder with your own valid Groq API key. Use a model ID supported by your Groq account.
+Replace the placeholder with your own API key and use a model identifier supported by your Groq account.
+
+**Security:** Never upload `.env` or expose your API key in a public repository.
 
 ### 5. Run IntelliTask AI
 
@@ -212,82 +190,69 @@ Replace the placeholder with your own valid Groq API key. Use a model ID support
 python main.py
 ```
 
-Enter a description of your tasks when prompted.
+Enter your task description when prompted. Type `exit` to close the application.
 
-To close the application, type `exit`.
+## Testing
 
----
-
-## ✦ Testing
-
-Run the test suite:
+Run the automated test suite:
 
 ```powershell
 python -m pytest -q
 ```
 
-The current test suite covers:
+The current test suite covers result formatting, empty task lists, and the presence of the three workflow nodes.
 
-- Task formatting.
-- Empty task handling.
-- Three-node workflow structure.
+**Development verification:** 3 tests passed.
 
-**Verified development result:** `3 passed in 5.24s`
+## Core Concepts
 
----
+- Large Language Model (LLM) integration
+- Natural-language processing
+- Sequential AI workflow design
+- LangGraph state management
+- Structured output validation
+- API configuration and environment variables
+- Automated software testing
 
-## ✦ Concepts Demonstrated
+## Current Limitations
 
-- Large Language Model integration
-- Natural-language task processing
-- State-based graph workflows
-- Sequential AI pipeline design
-- Structured outputs and schema validation
-- Environment-based API configuration
-- Automated testing with pytest
+- The current application uses a command-line interface.
+- Tasks are not persisted between sessions.
+- Priority assignments depend on the language model.
+- Relative deadlines are stored as text rather than converted to calendar dates.
+- A working Groq API configuration and internet connection are required.
 
----
+## Future Enhancements
 
-## ✦ Future Enhancements
-
-- [ ] Professional graphical user interface
-- [ ] Persistent task storage with SQLite
-- [ ] Edit and delete task functionality
-- [ ] Task completion tracking
-- [ ] Deadline reminders
-- [ ] Calendar integration
-- [ ] User-adjustable priorities
+- Professional graphical user interface
+- Persistent task storage
+- Task editing and completion tracking
+- Deadline reminders
+- Calendar integration
+- Task analytics
 
 *These are potential future improvements, not features of the current version.*
 
 ---
 
-## ✦ Current Limitations
-
-- The current application runs in a command-line interface.
-- Tasks are not saved between sessions.
-- Priority assignments depend on model interpretation.
-- Relative deadlines are retained as phrases, not converted into calendar dates.
-- A working Groq API configuration and internet connection are required.
-
----
-
-## ✦ Author
-
 <div align="center">
 
-### Hania Eman
+### Built with Python, LangGraph & Groq API
 
-**AI & Data Science Student | Python & Machine Learning Enthusiast**
-
-Building practical AI applications and intelligent workflow solutions.
+**Organize tasks. Prioritize smarter. Work more efficiently.**
 
 <br/>
 
-*Organize tasks. Prioritize smarter. Work with clarity.*
+**Hania Eman**  
+*AI & Data Science Student · Python & Machine Learning Enthusiast*
 
 <br/>
 
-**IntelliTask AI · Built with Python, LangGraph & Groq API**
+<a href="https://github.com/haniaeman2026-pixel/IntelliTask-AI">
+  <img src="https://img.shields.io/badge/View%20Repository-3B2419?style=for-the-badge&logo=github&logoColor=FFF8EE" alt="View GitHub repository"/>
+</a>
 
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:3B2419,50:8A5638,100:D5AE78&height=90&section=footer" width="100%" alt="Decorative footer"/>
+
